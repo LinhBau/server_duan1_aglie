@@ -22,12 +22,12 @@ exports.getDonHangByUsername = async (req, res, next) => {
     let name = req.params.name;
     let [list] = await DonHang.getDonHangByUsername(name);
     if (list != null) {
-        return res.status(201).json({list});
-      } else {
-        return res.status(400).json({
-          msg: "Danh sách đơn hàng theo tên khách hàng không có dữ liệu",
-        });
-      }
+      return res.status(201).json({ list });
+    } else {
+      return res.status(400).json({
+        msg: "Danh sách đơn hàng theo tên khách hàng không có dữ liệu",
+      });
+    }
   } catch (error) {
     res.status(500).json({
       msg: error.message,
@@ -60,15 +60,30 @@ exports.createDonHang = async (req, res, next) => {
     );
     var data = await obj.createDonHang();
     if (data != null) {
-        returnres.status(200).json({
+      return res.status(200).json({
         msg: "Thêm đơn hàng thành công",
       });
-    } else{
-        return res.status(500).json({
-            msg: "Không thể thêm đơn hàng"
-        })
+    } else {
+      return res.status(400).json({
+        msg: "Không thể thêm đơn hàng",
+      });
     }
-     
+  } catch (error) {
+    res.status(500).json({
+      msg: error.message,
+    });
+  }
+};
+
+exports.updateDonHang = async (req, res, next) => {
+  try {
+    var { newName, oldName } = req.body;
+    var data = await DonHang.updateDonHang(oldName, newName);
+    if (data != null) {
+      return res.status(201).json({ msg: "Cập nhật thành công" });
+    } else {
+      return res.status(400).json({ msg: "Không cập nhật được" });
+    }
   } catch (error) {
     res.status(500).json({
       msg: error.message,

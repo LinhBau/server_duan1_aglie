@@ -39,6 +39,11 @@ class DonHang{
         return db.execute(sql);
     }
 
+    static updateDonHang(oldname, newname){
+        let sql = `update donhang set tennguoidung = '${newname}' where tennguoidung = '${oldname}'`;
+        return db.execute(sql);
+    }
+
 }
 
 module.exports = DonHang;
