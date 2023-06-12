@@ -1,0 +1,72 @@
+<!-- header -->
+<%-include('../inc/header')%>
+<!-- /header -->
+<div class="wrapper">
+    <!-- add pro and find -->
+    <div class="row">
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+                <div>
+                    <h1>Đơn hàng</h1>
+                </div>
+                <!-- <a class="btn btn-outline-primary" href="/theloai/add">Thêm thể loại</a> -->
+                <!-- <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-danger" type="submit">Search</button>
+                </form> -->
+            </div>
+        </nav>
+    </div>
+
+    <hr>
+    <!-- /add pro and find -->
+    <form action="" method="post">
+        <div class="container-fluid">
+            <div class="row">
+                <form action="" method="post" id="tb-sp">
+                    <table class="table table-bordered table-striped text-center">
+                        <thead class="thead table-dark">
+                            <tr>
+                                <th scope="col">STT</th>
+                                <th scope="col">Tên người dùng</th>
+                                <th scope="col">Số điện thoại</th>
+                                <th scope="col">Địa chỉ nhận</th>
+                                <th scope="col">Thực đơn</th>
+                                <th scope="col">Tổng tiền</th>
+                                <th scope="col">Thanh toán</th>
+                                <th scope="col">Ngày đặt mua</th>
+                                <th scope="col">Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%for(var i = 0; i< list.length;i++){%>
+                            <tr>
+                                <td scope="col"><%=i+1%></td>
+                                <td scope="col" class="fw-bold"><%=list[i].tennguoidung%></td>
+                                <td scope="col" class="fw-bold"><%=list[i].sodienthoai%></td>
+                                <td scope="col" class="fw-bold"><%=list[i].diachinhan%></td>
+                                <td scope="col" class="fw-bold"><%=list[i].thucdon%></td>
+                                <td scope="col" class="fw-bold"><%=list[i].tongtien%></td>
+                                <td scope="col" class="fw-bold"><%=list[i].thanhtoan%></td>
+                                <td scope="col" class="fw-bold"><%=list[i].ngaydatmua%></td>
+                                <%if(list[i].trangthai == 0) {%>
+                                    <td scope="col" class="fw-bold">Đang giao hàng</td>
+                                <%}else{%>
+                                    <td scope="col" class="fw-bold">Giao hàng thành công</td>
+                                <%}%>
+                            </tr>
+                            <%}%>
+                            </tbody>
+                        </table>
+                    </form>
+                    <!-- Pagination -->
+                    <%-include('../inc/pagination')%>
+                    <!-- /Pagination -->
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+<!-- footer -->
+<%-include('../inc/footer')%>
+<!-- /footer -->

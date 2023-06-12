@@ -1,0 +1,58 @@
+<!-- header -->
+<%-include('../inc/header')%>
+
+<!-- /header -->
+<div class="wrapper">
+    <!-- add pro and find -->
+    <div class="row">
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+                <div>
+                    <h1>Người dùng</h1>
+                </div>
+                <a class="btn btn-outline-primary" id="logout-button" href="/users/logout">Đăng xuất</a>
+
+            </div>
+        </nav>
+    </div>
+
+    <hr>
+    <!-- /add pro and find -->
+
+    <form action="" method="post">
+        <table class="table table-bordered table-striped text-center">
+            <thead class="thead table-dark">
+                <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Tên người dùng</th>
+                    <th scope="col">Ngày tạo</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(var i = 0; i< list.length;i++){%>
+                <tr>
+                    <td scope="col"><%=i+1%></td>
+                    <td scope="col" class="fw-bold"><%=list[i].username%></td>
+                    <td scope="col" class="fw-bold"><%=list[i].created_at%></td>
+                    <td>
+                        <a href="/users/<%=list[i].id%>" class="btn border-shadow delete" id="delete" data-id="<%=list[i].id%>">
+                            <span class="text-gradient">
+                                <i class="fa-solid fa-trash"></i>
+                            </span>
+                        </a>
+
+                    </td>
+                </tr>
+                <%}%>
+            </tbody>
+        </table>
+    </form>
+    <!-- Pagination -->
+     <%-include('../inc/pagination')%>
+                <!-- /Pagination -->
+</div>
+</div>
+<!-- footer -->
+<%-include('../inc/footer')%>
+<!-- /footer -->

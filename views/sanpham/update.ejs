@@ -1,0 +1,72 @@
+<!-- header -->
+<%-include('../inc/header')%>
+<!-- /header -->
+
+<div class="wrapper">
+    <div class="container main my-2">
+        <div class="row m-5">
+            <div class="card mb-3">
+                <div class="row">
+                    <h2 class="text-center p-2">Sửa sản phẩm</h2>
+                    <hr>
+                </div>
+                <div class="card-body ">
+                    <form class="row g-3" action="" method="post" enctype="application/x-www-form-urlencoded">
+                        <%list.forEach(row=>{%>
+                        <div class="col-md-12">
+                            <label for="validationServer04" class="form-label">Loại sản phẩm</label>
+                            <select class="form-select" name="idloaisanpham" id="validationServer04" required>
+                                <option selected disabled value="">Chọn...</option>
+                                <% dulieuTL.forEach((rowTL) => {
+                                    var selected = '';
+                                    if(String(rowTL.id) == String(row.idloaisanpham))
+                                        selected = 'selected';
+                                    %>
+                                    <option <%=selected%> value="<%=rowTL.id%>"><%=rowTL.tenloaisanpham%></option>
+                                <%})%>
+                            </select>
+                        </div>
+                            <div class="col-md-6">
+                                <label for="validationDefault01" class="form-label">Tên sản phẩm</label>
+                                <input type="text" class="form-control" id="validationDefault01" name="tensanpham" value="<%=row.tensanpham%>" required>
+                            </div>
+              
+                            <div class="col-md-6">
+                                <label for="validationDefault01" class="form-label">Giá tiền</label>
+                                <input type="text" class="form-control" id="validationDefault04" name="giasanpham" value="<%=row.giasanpham%>" required>
+                            </div>        
+    
+                            <div class="col-md-12">
+                                <label for="validationDefault01" class="form-label">Địa chỉ</label>
+                                <input type="text" class="form-control" id="validationDefault04" name="diachi" value="<%=row.diachi%>" required>
+                            </div>       
+    
+                            <div class="col-md-12">
+                                <label for="validationDefault01" class="form-label">Hình ảnh</label>
+                                <input type="text" class="form-control" id="validationDefault04" name="hinhanh" value="<%=row.hinhanh%>" required>
+                            </div>       
+    
+                            <div class="input-group">
+                                <span class="input-group-text">Mô tả</span>
+                                <textarea class="form-control" aria-label="With textarea" name="mota" required><%=row.mota%></textarea>
+                            </div>
+                        <%})%>
+                        <div class="col-6">
+                            <button class="btn btn-primary btn_add_pro" type="submit">Update</button>
+                        </div>
+
+                        <div class="col-6 d-grid gap-2 d-md-flex justify-content-md-end">
+                            <!-- <button class="btn btn-secondary me-md-2" type="button">Back</button> -->
+                            <a href="/sp" class="btn btn-secondary me-md-2 btn_back_pro">Back</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
+<%-include('../inc/footer')%>
+<!-- /footer -->

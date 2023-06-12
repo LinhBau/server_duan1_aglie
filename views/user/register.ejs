@@ -1,0 +1,58 @@
+<!-- header -->
+<%-include('../inc/headeruser')%>
+<!-- /header -->
+
+<%if(msg){%>
+    <p class="bg-danger text-center text-light p-2"><%=msg%></p>
+<%}%>
+
+<div class="wrapper">
+    <div class="container main">
+        <div class="row">
+            <div class="col-md-6 side-image-register">    
+            </div>
+            <div class="col-md-6 right">
+                <div class="input-box">
+                    <header>Đăng kí</header>
+                    <form action="" method="POST" enctype="application/x-www-form-urlencoded">
+                        <div class="input-field">
+                            <span class="icon">
+                                <ion-icon name="person"></ion-icon>
+                            </span>
+                            <input type="text" class="input" id="username" name="username" value="<%= typeof username !== 'undefined' ? username : ''%>" required autocomplete="off">
+                            <label for="username">Tên người dùng</label>
+                        </div>
+
+                        <div class="input-field">
+                            <span class="icon">
+                                <ion-icon name="lock-closed"></ion-icon>
+                            </span>
+                            <input type="password" class="input" id="password" name="passwd" value="<%= typeof passwd !== 'undefined' ? passwd : ''%>" required>
+                            <label for="password">Mật khẩu</label>
+                        </div>
+    
+                        <div class="input-field">
+                            <span class="icon">
+                                <ion-icon name="lock-closed"></ion-icon>
+                            </span>
+                            <input type="password" class="input" id="password" name="repasswd" value="<%= typeof repasswd !== 'undefined' ? repasswd : ''%>" required>
+                            <label for="password">Xác nhận mật khẩu</label>
+                        </div>
+    
+                        <div class="input-field">
+                            <input type="submit" class="submit" value="Đăng kí">      
+                        </div>
+                    </form>
+
+                    <div class="signin">
+                        <span>Bạn đã có tài khoản? <a href="/users/login">Đăng nhập tại đây</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
+<%-include('../inc/footer')%>
+<!-- /footer -->

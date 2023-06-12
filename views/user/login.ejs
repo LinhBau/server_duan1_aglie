@@ -1,0 +1,53 @@
+<!-- header -->
+<%-include('../inc/headeruser')%>
+<!-- /header -->
+
+<%if(msg){%>
+    <p class="bg-danger text-center text-light p-2"><%=msg%></p>
+<%}%>
+
+<div class="wrapper">
+    <div class="container main">
+        <div class="row">
+            <div class="col-md-6 side-image">
+                <!-- <div class="text">
+                    <p>Login to shop now!</p>
+                </div> -->
+            </div>
+            <div class="col-md-6 right">
+                <div class="input-box">
+                    <header>Đăng nhập</header>
+                    <form action="" method="post">
+                        <div class="input-field">
+                            <span class="icon">
+                                <ion-icon name="person"></ion-icon>
+                            </span>
+                            <input type="text" class="input" id="username" name="username" value="<%= typeof username !== 'undefined' ? username : '' %>" required autocomplete="off">
+                            <label for="username">Tên đăng nhập</label>
+                        </div>
+    
+                        <div class="input-field">
+                            <span class="icon">
+                                <ion-icon name="lock-closed"></ion-icon>
+                            </span>
+                            <input type="password" class="input" id="password" name="password" value="<%= typeof password !== 'undefined' ? password : '' %>" required>
+                            <label for="password">Mật khẩu</label>
+                        </div>
+    
+                        <div class="input-field">
+                            <input type="submit" class="submit" value="Đăng nhập">      
+                        </div>
+                    </form>
+                    
+                    <div class="signin">
+                        <span>Bạn chưa có tài khoản? <a href="/users/register">Đăng kí ngay</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
+<%-include('../inc/footer')%>
+<!-- /footer -->
