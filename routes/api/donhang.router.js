@@ -6,7 +6,8 @@ router.route("/").get(donHangCT.getAll);
 router.route("/:name").get(donHangCT.getDonHangByUsername);
 
 router.post("/add", donHangCT.createDonHang);
-router.post("/up/", donHangCT.updateDonHang);
+router.post("/up", donHangCT.updateDonHang);
+router.post("/up_status", donHangCT.updateStatus)
 
 
 module.exports = router;

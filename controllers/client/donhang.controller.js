@@ -20,6 +20,10 @@ exports.getAll = async (req, res, next) => {
 exports.getDonHangByUsername = async (req, res, next) => {
   try {
     let name = req.params.name;
+    if(name == "admin"){
+      let [list] = await DonHang.getAllDonHang();
+      return res.status(201).json({ list });
+    }
     let [list] = await DonHang.getDonHangByUsername(name);
     if (list != null) {
       return res.status(201).json({ list });
@@ -90,3 +94,19 @@ exports.updateDonHang = async (req, res, next) => {
     });
   }
 };
+
+exports.updateStatus = async (req, res, next) => {
+  try {
+    var {id, trangthai} = req.body;
+    var data = await DonHang.updateStatusDonHang(id, trangthai);
+    if (data != null) {
+      return res.status(201).json({ msg: "Cập nhật trạng thái đơn hàng thành công" });
+    } else {
+      return res.status(400).json({ msg: "Không cập nhật được trạng thái đơn hàng" });
+    }
+  } catch (error) {
+    res.status(500).json({
+      msg: error.message,
+    });
+  }
+}
