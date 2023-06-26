@@ -63,6 +63,13 @@ exports.createDonHang = async (req, res, next) => {
       trangthai
     );
     var data = await obj.createDonHang();
+    var checkNumber = /^0\d{9}$/;
+    if(!checkNumber.test(sodienthoai)){
+      return res.status(400).json({
+        msg: "Vui lòng nhập đúng số điện thoại"
+      })
+    }
+
     if (data != null) {
       return res.status(200).json({
         msg: "Thêm đơn hàng thành công",

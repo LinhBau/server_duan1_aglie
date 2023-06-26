@@ -49,6 +49,10 @@ class DonHang{
         return db.execute(sql);
     }
 
+    static testCommitGit(){
+        
+    }
+
 }
 
 module.exports = DonHang;
