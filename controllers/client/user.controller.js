@@ -81,6 +81,10 @@ exports.updateUser = async (req, res, next) => {
 }
 
 exports.deleteUser = async (req, res, next) => {
-
+    try {
+        //Test Update in github
+    } catch (error) {
+        console.log(error);
+    }
 }
 
